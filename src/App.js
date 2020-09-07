@@ -1,4 +1,4 @@
-import React from "react";
+import React, { Fragment } from "react";
 import {
   BrowserRouter as Router,
   Switch,
@@ -7,6 +7,8 @@ import {
 } from "react-router-dom";
 
 import { Navbar } from "./app/Navbar";
+import { PostsList } from "../src/features/posts/postsList";
+import { AddPostForm } from "../src/features/posts/addPostForm";
 
 function App() {
   return (
@@ -18,11 +20,13 @@ function App() {
             exact
             path="/"
             render={() => (
-              <section>
-                <h2>Welcome to the Redux Posts app!</h2>
-              </section>
+              <Fragment>
+                <AddPostForm />>
+                <PostsList />
+              </Fragment>
             )}
           />
+
           <Redirect to="/" />
         </Switch>
       </div>
