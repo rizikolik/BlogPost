@@ -8,7 +8,9 @@ import {
 
 import { Navbar } from "./app/Navbar";
 import { PostsList } from "../src/features/posts/postsList";
+import { SinglePostPage } from "../src/features/posts/SinglePostPage";
 import { AddPostForm } from "../src/features/posts/addPostForm";
+import { EditPostPage } from "../src/features/posts/EditPostPage";
 
 function App() {
   return (
@@ -21,11 +23,13 @@ function App() {
             path="/"
             render={() => (
               <Fragment>
-                <AddPostForm />>
+                <AddPostForm />
                 <PostsList />
               </Fragment>
             )}
           />
+          <Route exact path="/posts/:postId" component={SinglePostPage} />
+          <Route exact path="/posts/:postId/edit" component={EditPostPage} />
 
           <Redirect to="/" />
         </Switch>
