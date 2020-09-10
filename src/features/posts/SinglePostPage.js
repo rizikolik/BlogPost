@@ -2,6 +2,8 @@ import React from "react";
 import { useSelector } from "react-redux";
 import { PostAuthor } from "./postAuthor";
 import { TimeAgo } from "./timeAgo";
+import { ReactionButtons } from "./ReactionButtons";
+
 export const SinglePostPage = ({ match }) => {
   const { postId } = match.params;
 
@@ -20,6 +22,7 @@ export const SinglePostPage = ({ match }) => {
         {console.log(post.user)}
         <PostAuthor userId={post.user} />
         <TimeAgo timestamp={post.date} />
+        <ReactionButtons post={post} />
       </article>
     </section>
   );
